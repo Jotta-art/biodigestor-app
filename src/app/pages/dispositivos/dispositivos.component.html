@@ -1,0 +1,139 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+      <h1>Seus Dispositivos</h1>
+      <div class="row">
+        <div class="col-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Biodigestor 1 - Consumo</h5>
+                  <span class="h2 font-weight-bold mb-0">Vazão - 397 litros/minuto</span>
+                  <br>
+                  <span class="h2 font-weight-bold mb-0">Pressão - 407 Pa</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                    <i class="fas fa-chart-bar"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 6.92%</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Biodigestor 2 - Consumo</h5>
+                  <span class="h2 font-weight-bold mb-0">Vazão - 122 litros/minuto</span>
+                  <br>
+                  <span class="h2 font-weight-bold mb-0">Pressão - 276 Pa</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                    <i class="fas fa-chart-bar"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 17.48%</span>
+                <span class="text-nowrap">Desde o mês passado</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="center-j mt-4">
+    <div class="inline-block col-6">
+      <button class="btn btn-info" type="button">Editar Dispositivos</button>
+    </div>
+    <div class="inline-block col-6">
+      <button class="btn btn-danger" type="button">Deletar Dispositivos</button>
+    </div>
+  </div>
+</div>
+
+<div class="center-j m-4">
+  <h1>O que é Pascal (Pa)?</h1>
+
+  <p>O pascal (símbolo: Pa) é uma unidade de medida de pressão no Sistema Internacional de Unidades (SI). Ele é
+    utilizado para medir a pressão, que é a força exercida por unidade de área. Um pascal é definido como a pressão
+    exercida por uma força de 1 newton agindo uniformemente sobre uma área de 1 metro quadrado. Isso significa que se
+    você tiver uma área de 1 metro quadrado e aplicar uma força de 1 newton uniformemente nessa área, a pressão
+    resultante será de 1 pascal.</p>
+
+  <div class="mt-4 mb-4">
+    <img src="./assets/img/pascal.jpeg" class="img-j" alt="...">
+  </div>
+
+  <p>Para dar uma perspectiva, a pressão atmosférica ao nível do mar é aproximadamente 101.325 pascals, ou seja, cerca
+    de 101.325 newtons de força exercidos em cada metro quadrado de área. No entanto, é importante notar que existem
+    outras unidades comumente usadas para medir pressão, como o bar, o milímetro de mercúrio (mmHg) e o psi (libra-força
+    por polegada quadrada).</p>
+
+<!--  <div class="mt-4 mb-4">-->
+<!--    <img src="./assets/img/biodigestor-funcionamento.jpg" class="img-j" alt="...">-->
+<!--  </div>-->
+
+  <p>O pascal é uma unidade fundamental para diversas áreas, como física, engenharia, ciências dos materiais e
+    meteorologia, sendo essencial para medir e compreender a pressão em diferentes contextos e sistemas.</p>
+</div>
+
+
+<div class="card flex justify-content-center m-8" *ngIf="visible">
+  <div class="center">
+    <p-card header="Teste Mongo">
+      <p>Obter dados MongoDB</p>
+
+      <div class="col-4 inline-block">
+        <button pButton pRipple label="Buscar" (click)="buscarDados()" class="p-button-success"></button>
+      </div>
+
+      <div class="col-4 inline-block">
+        <button pButton pRipple label="Limpar" (click)="limpar()" class="p-button-success"></button>
+      </div>
+
+      <div class="col-4 inline-block">
+        <button pButton pRipple label="Novo" (click)="novo()" class="p-button-success"></button>
+      </div>
+
+      <div *ngIf="dados && dados.length">
+        <div class="card">
+          <p-table [value]="dados" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Chave</th>
+                <th>Valor</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-dado>
+              <tr>
+                <td>{{ dado.id }}</td>
+                <td>{{ dado.chave }}</td>
+                <td>
+                  <button pButton pRipple label="Editar" (click)="editar(dado)" class="p-button-prmary"></button>
+                </td>
+                <td>
+                  <button pButton pRipple label="Deletar" (click)="deletar(dado.id)" class="p-button-danger"></button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </p-card>
+  </div>
+</div>
+
