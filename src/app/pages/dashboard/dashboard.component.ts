@@ -69,7 +69,7 @@ export class DashboardComponent implements OnInit {
   }
 
   enviarEditado() {
-    this.filtro.nome = this.filtro.dadoEditar.chave;
+    this.filtro.nome = this.filtro.dadoEditar.nome;
     this.homeService.editar(this.filtro)
       .subscribe({
         next: response => {

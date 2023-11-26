@@ -41,8 +41,8 @@
 <!--    resíduos orgânicos, transformando-os em recursos valiosos.</p>-->
 <!--</div>-->
 
-<div style="margin-left: 600px;">
-  <div class="center">
+<div class="m-8">
+  <div class="center-j">
     <p-card header="Teste Mongo">
       <p>Obter dados MongoDB</p>
 
@@ -81,8 +81,12 @@
                 <td>{{ dado.vazao }}</td>
                 <td>{{ dado.pressao }}</td>
                 <td>{{ dado.data }}</td>
-                <td><button pButton pRipple label="Editar" (click)="editar(dado)" class="p-button-prmary"></button></td>
-                <td><button pButton pRipple label="Deletar" (click)="deletar(dado.id)" class="p-button-danger"></button></td>
+                <td>
+                  <button pButton pRipple label="Editar" (click)="editar(dado)" class="p-button-prmary"></button>
+                </td>
+                <td>
+                  <button pButton pRipple label="Deletar" (click)="deletar(dado.id)" class="p-button-danger"></button>
+                </td>
               </tr>
             </ng-template>
           </p-table>
@@ -90,24 +94,26 @@
       </div>
     </p-card>
   </div>
+
+  <p-dialog [modal]="true" [draggable]="false" (onHide)="limparFiltro()" header="Novo" [(visible)]="visible"
+            [style]="{width: '50vw'}">
+    <div class="center-j">
+      <div><p>Nome</p></div>
+      <div class="mb-4"><input type="text" pInputText [(ngModel)]="filtro.nome"/></div>
+      <div>
+        <button pButton pRipple label="Novo" (click)="enviarNovo()" class="p-button-success"></button>
+      </div>
+    </div>
+  </p-dialog>
+
+  <p-dialog [modal]="true" [draggable]="false" (onHide)="limparFiltro()" header="Editar" [(visible)]="visibleEditar"
+            [style]="{width: '50vw'}">
+    <div class="center-j">
+      <div><p>Nome</p></div>
+      <div class="mb-4"><input type="text" pInputText [(ngModel)]="filtro.dadoEditar.nome"/></div>
+      <div>
+        <button pButton pRipple label="Novo" (click)="enviarEditado()" class="p-button-success"></button>
+      </div>
+    </div>
+  </p-dialog>
 </div>
-
-<p-dialog [modal]="true" [draggable]="false" (onHide)="limparFiltro()" header="Novo" [(visible)]="visible" [style]="{width: '50vw'}">
-  <div class="center">
-    <div><p>Nome</p></div>
-    <div class="mb-4"><input type="text" pInputText [(ngModel)]="filtro.nome"/></div>
-    <div>
-      <button pButton pRipple label="Novo" (click)="enviarNovo()" class="p-button-success"></button>
-    </div>
-  </div>
-</p-dialog>
-
-<p-dialog [modal]="true" [draggable]="false" (onHide)="limparFiltro()" header="Editar" [(visible)]="visibleEditar" [style]="{width: '50vw'}">
-  <div class="center">
-    <div><p>Nome</p></div>
-    <div class="mb-4"><input type="text" pInputText [(ngModel)]="filtro.dadoEditar.chave"/></div>
-    <div>
-      <button pButton pRipple label="Novo" (click)="enviarEditado()" class="p-button-success"></button>
-    </div>
-  </div>
-</p-dialog>
