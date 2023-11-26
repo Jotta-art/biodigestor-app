@@ -3,12 +3,13 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {Usuario} from "./models/usuario";
 import {Observable} from "rxjs";
 import {JwtHelperService} from "@auth0/angular-jwt";
+import {environment} from "../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  tokenURL = 'http://localhost:8080/oauth/token';
+  tokenURL = environment.baseUrl + '/oauth/token';
   clientId = 'my-angular-app';
   clientSecret = '@321';
 
@@ -50,7 +51,7 @@ export class AuthService {
   }
 
   salvar(usuario: Usuario): Observable<any> {
-    return this.http.post<any>("http://localhost:8080/api/usuarios", usuario);
+    return this.http.post<any>(environment.baseUrl + "/api/usuarios", usuario);
 
   }
 
@@ -64,8 +65,6 @@ export class AuthService {
       'Authorization': 'Basic ' + btoa(`${this.clientId}:${this.clientSecret}`),
       'Content-Type': 'application/x-www-form-urlencoded'
     }
-
-    console.log(headers);
 
     return this.http.post(this.tokenURL, params.toString(), {headers});
   }
