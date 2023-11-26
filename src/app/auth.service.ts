@@ -10,7 +10,7 @@ import * as dotenv from 'dotenv';
   providedIn: 'root'
 })
 export class AuthService {
-  tokenURL = 'https://tcc-api-v1-fa6828c60737.herokuapp.com/oauth/token';
+  tokenURL = environment.baseUrl + '/oauth/token';
   clientId = 'my-angular-app';
   clientSecret = '@321';
 
