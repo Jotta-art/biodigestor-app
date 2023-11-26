@@ -4,12 +4,13 @@ import {Usuario} from "./models/usuario";
 import {Observable} from "rxjs";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {environment} from "../environments/environment";
+import * as dotenv from 'dotenv';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  tokenURL = environment.baseUrl + '/oauth/token';
+  tokenURL = process.env.BASE_URL + '/oauth/token';
   clientId = 'my-angular-app';
   clientSecret = '@321';
 
