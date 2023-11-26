@@ -43,8 +43,8 @@
 
 <div class="m-8">
   <div class="center-j">
-    <p-card header="Teste Mongo">
-      <p>Obter dados MongoDB</p>
+    <p-card header="Teste Firebase">
+      <p>Obter dados Firebase</p>
 
       <div class="col-4 inline-block">
         <button pButton pRipple label="Buscar" (click)="buscarDados()" class="p-button-success"></button>
@@ -98,8 +98,14 @@
   <p-dialog [modal]="true" [draggable]="false" (onHide)="limparFiltro()" header="Novo" [(visible)]="visible"
             [style]="{width: '50vw'}">
     <div class="center-j">
-      <div><p>Nome</p></div>
-      <div class="mb-4"><input type="text" pInputText [(ngModel)]="filtro.nome"/></div>
+      <div>
+        <div><p>Pressão</p></div>
+        <div class="mb-4"><input type="text" pInputText [(ngModel)]="filtro.pressao"/></div>
+      </div>
+      <div>
+        <div><p>Vazão</p></div>
+        <div class="mb-4"><input type="text" pInputText [(ngModel)]="filtro.vazao"/></div>
+      </div>
       <div>
         <button pButton pRipple label="Novo" (click)="enviarNovo()" class="p-button-success"></button>
       </div>
@@ -109,8 +115,14 @@
   <p-dialog [modal]="true" [draggable]="false" (onHide)="limparFiltro()" header="Editar" [(visible)]="visibleEditar"
             [style]="{width: '50vw'}">
     <div class="center-j">
-      <div><p>Nome</p></div>
-      <div class="mb-4"><input type="text" pInputText [(ngModel)]="filtro.dadoEditar.nome"/></div>
+      <div>
+        <div><p>Pressão</p></div>
+        <div class="mb-4"><input type="text" pInputText [(ngModel)]="filtro.dadoEditar.pressao"/></div>
+      </div>
+      <div>
+        <div><p>Vazão</p></div>
+        <div class="mb-4"><input type="text" pInputText [(ngModel)]="filtro.dadoEditar.vazao"/></div>
+      </div>
       <div>
         <button pButton pRipple label="Novo" (click)="enviarEditado()" class="p-button-success"></button>
       </div>

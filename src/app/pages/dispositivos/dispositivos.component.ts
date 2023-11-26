@@ -80,16 +80,16 @@ export class DispositivosComponent implements OnInit {
   }
 
   enviarEditado() {
-    this.filtro.nome = this.filtro.dadoEditar.chave;
-    this.service.editar(this.filtro)
-      .subscribe({
-        next: response => {
-          this.buscarDados();
-          this.visibleEditar = false;
-        }, error: (error) => {
-          console.log(error)
-        },
-      });
+    // this.filtro.nome = this.filtro.dadoEditar.chave;
+    // this.service.editar(this.filtro)
+    //   .subscribe({
+    //     next: response => {
+    //       this.buscarDados();
+    //       this.visibleEditar = false;
+    //     }, error: (error) => {
+    //       console.log(error)
+    //     },
+    //   });
   }
 
   limparFiltro() {

@@ -23,7 +23,7 @@ export class HomeService {
     return this.http.delete<Dado>(`http://localhost:8080/home/${id}`)
   }
 
-  editar(filtro: Filtro) {
-    return this.http.put<Dado>(`http://localhost:8080/home/${filtro.dadoEditar.id}`, filtro)
+  editar(dado: Dado) {
+    return this.http.put<Dado>(`http://localhost:8080/home/${dado.id}`, dado)
   }
 }
