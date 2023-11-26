@@ -10,7 +10,7 @@ import * as dotenv from 'dotenv';
   providedIn: 'root'
 })
 export class AuthService {
-  tokenURL = process.env.BASE_URL + '/oauth/token';
+  tokenURL = environment.baseUrl + '/oauth/token';
   clientId = 'my-angular-app';
   clientSecret = '@321';
 
