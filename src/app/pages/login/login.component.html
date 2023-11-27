@@ -37,6 +37,9 @@
           <div class="text-center text-muted mb-4">
             <small>Or sign in with credentials</small>
           </div>
+          <div class="alert alert-danger" *ngFor="let erro of errors">
+            {{erro}}
+          </div>
           <form role="form">
             <div class="form-group mb-3">
               <div class="input-group input-group-alternative">

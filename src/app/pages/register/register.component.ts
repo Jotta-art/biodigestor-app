@@ -11,6 +11,7 @@ import {AuthService} from "../../auth.service";
 export class RegisterComponent implements OnInit {
   username = ''
   password = ''
+  email = ''
   mensagemSucesso = '';
   errors: String[];
 
@@ -24,6 +25,7 @@ export class RegisterComponent implements OnInit {
     const usuario: Usuario = new Usuario();
     usuario.username = this.username;
     usuario.password = this.password;
+    usuario.email = this.email;
     this.authService.salvar(usuario)
       .subscribe(
         response => {

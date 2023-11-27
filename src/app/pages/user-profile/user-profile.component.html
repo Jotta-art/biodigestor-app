@@ -6,7 +6,7 @@
   <div class="container-fluid d-flex align-items-center">
     <div class="row">
       <div class="col-lg-7 col-md-10">
-        <h1 class="display-2 text-white">Olá Jessica</h1>
+        <h1 class="display-2 text-white">Olá {{usuarioLogado}}</h1>
         <p class="text-white mt-0 mb-5">Esta é a sua página de perfil. Você pode ver o progresso que fez com o seu
           trabalho e gerenciar seus projetos ou tarefas atribuídas</p>
         <!--        <a href="#!" class="btn btn-info">Edit profile</a>-->
@@ -22,7 +22,7 @@
           <div class="col-lg-3 order-lg-2">
             <div class="card-profile-image">
               <a href="javascript:void(0)">
-                <img src="assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                <img src="assets/img/theme/perfil.png" class="rounded-circle">
               </a>
             </div>
           </div>
@@ -94,14 +94,14 @@
                   <div class="form-group">
                     <label class="form-control-label" for="input-username">Username</label>
                     <input type="text" id="input-username" class="form-control form-control-alternative"
-                           placeholder="Username" value="jessica.jones">
+                           placeholder="Username" value="{{usuarioLogado}}">
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-email">E-mail</label>
                     <input type="email" id="input-email" class="form-control form-control-alternative"
-                           placeholder="jesse@gmail.com">
+                           placeholder="{{email}}">
                   </div>
                 </div>
               </div>

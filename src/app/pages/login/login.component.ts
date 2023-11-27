@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         localStorage.setItem('access_token', acsess_token);
         this.router.navigate(['/home'])
       }, error =>  {
-        this.errors = ['usuário0 e/ou senha incorretos(s).'];
+        this.errors = ['Usuário e/ou senha incorretos(s).'];
       })
   }
 

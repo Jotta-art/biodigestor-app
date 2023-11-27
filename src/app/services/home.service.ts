@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {Filtro} from "../models/filtro";
 import {Dado} from "../models/dado";
 import {environment} from "../../environments/environment";
+import {Usuario} from "../models/usuario";
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,9 @@ export class HomeService {
 
   editar(dado: Dado) {
     return this.http.put<Dado>(environment.baseUrl + `/home/${dado.id}`, dado)
+  }
+
+  obterEmailUsuarioLogado(username: string): Observable<Usuario> {
+    return this.http.get<Usuario>(environment.baseUrl + `/home/${username}`)
   }
 }
