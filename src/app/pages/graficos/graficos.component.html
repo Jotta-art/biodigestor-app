@@ -2,7 +2,7 @@
   <div class="header-body">
     <div class="container-fluid mt-2">
       <h1 class="text-white">Gráficos</h1>
-      <div class="m-8 p-3 bg-white">
+      <div class="m-8 p-3 bg-white center-j" style="width: 900px !important; height: 600px !important; margin: auto!important;">
         <main role="main" class="">
           <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -28,11 +28,11 @@
         <table class="table table-striped table-sm">
           <thead>
           <tr>
-            <th>#</th>
+            <th>Data/Hora</th>
             <th>Fluxo Entrada</th>
-            <th>Vazão Entrada</th>
+            <th style="color: #007bff !important;">Vazão Entrada</th>
             <th>Fluxo Saída</th>
-            <th>Vazão Saída</th>
+            <th style="color: #fa5151 !important;">Vazão Saída</th>
             <th>Pressão</th>
           </tr>
           </thead>
@@ -43,7 +43,7 @@
             <td>{{ item.vazaoEntrada }}</td>
             <td>{{ item.fluxoSaida }}</td>
             <td>{{ item.vazaoSaida }}</td>
-            <td> N/A</td>
+            <td>{{ item.pressao }} </td>
           </tr>
           </tbody>
         </table>
@@ -56,7 +56,7 @@
         <table class="table table-striped table-sm">
           <thead>
           <tr>
-            <th>#</th>
+            <th>Data</th>
             <th>Total</th>
             <th>Mínimo</th>
             <th>Máximo</th>
