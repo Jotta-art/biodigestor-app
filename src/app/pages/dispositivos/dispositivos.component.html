@@ -3,62 +3,37 @@
     <div class="header-body">
       <!-- Card stats -->
       <h1 class="text-white">Seus Dispositivos</h1>
-      <div class="row">
-        <div class="col-6">
+      <div class="row m-auto">
+        <div class="col-9">
           <div class="card card-stats mb-4 mb-xl-0">
             <div class="card-body">
               <div class="row">
-                <div class="col">
+                <div class="col-12">
                   <h5 class="card-title text-uppercase text-muted mb-0">Biodigestor 1 - Consumo</h5>
-                  <span class="h2 font-weight-bold mb-0">Vazão - 397 litros/minuto</span>
-                  <br>
-                  <span class="h2 font-weight-bold mb-0">Pressão - 407 Pa</span>
+                  <div class="col-6 inline-block"><span
+                    class="h2 font-weight-bold mb-0">Vazão Entrada - {{vazaoEntrada}} litros/segundo</span></div>
+                  <div class="col-6 inline-block"><span class="h2 font-weight-bold mb-0">Vazão Saída - {{vazaoSaida}}
+                    litros/segundo</span></div>
+                  <div class="col-12 inline-block"><span class="h2 font-weight-bold mb-0">Pressão - 407 Pa</span></div>
                 </div>
-                <div class="col-auto">
+
+                <div class="col-6 inline-block">
+                  <p class="mt-3 mb-0 text-muted text-sm">
+                    <span class="{{textEntrada}} mr-2"><i class="fa {{class}}"></i> Vazão Entrada</span>
+                    <span class="{{textSaida}} mr-2"><i class="fa {{classSaida}}"></i> Vazão Saída</span>
+                  </p>
+                </div>
+
+                <div class="col-6 inline-block text-right">
                   <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
                     <i class="fas fa-chart-bar"></i>
                   </div>
                 </div>
               </div>
-              <p class="mt-3 mb-0 text-muted text-sm">
-                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 6.92%</span>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="card card-stats mb-4 mb-xl-0">
-            <div class="card-body">
-              <div class="row">
-                <div class="col">
-                  <h5 class="card-title text-uppercase text-muted mb-0">Biodigestor 2 - Consumo</h5>
-                  <span class="h2 font-weight-bold mb-0">Vazão - 122 litros/minuto</span>
-                  <br>
-                  <span class="h2 font-weight-bold mb-0">Pressão - 276 Pa</span>
-                </div>
-                <div class="col-auto">
-                  <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                    <i class="fas fa-chart-bar"></i>
-                  </div>
-                </div>
-              </div>
-              <p class="mt-3 mb-0 text-muted text-sm">
-                <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 17.48%</span>
-                <span class="text-nowrap">Desde o mês passado</span>
-              </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div class="center-j mt-4">
-    <div class="inline-block col-6">
-      <button class="btn btn-info" type="button">Editar Dispositivos</button>
-    </div>
-    <div class="inline-block col-6">
-      <button class="btn btn-danger" type="button">Deletar Dispositivos</button>
     </div>
   </div>
 </div>
@@ -81,9 +56,9 @@
     outras unidades comumente usadas para medir pressão, como o bar, o milímetro de mercúrio (mmHg) e o psi (libra-força
     por polegada quadrada).</p>
 
-<!--  <div class="mt-4 mb-4">-->
-<!--    <img src="./assets/img/biodigestor-funcionamento.jpg" class="img-j" alt="...">-->
-<!--  </div>-->
+  <!--  <div class="mt-4 mb-4">-->
+  <!--    <img src="./assets/img/biodigestor-funcionamento.jpg" class="img-j" alt="...">-->
+  <!--  </div>-->
 
   <p>O pascal é uma unidade fundamental para diversas áreas, como física, engenharia, ciências dos materiais e
     meteorologia, sendo essencial para medir e compreender a pressão em diferentes contextos e sistemas.</p>
