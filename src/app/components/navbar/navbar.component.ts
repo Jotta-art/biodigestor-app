@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   public listTitles: any[];
   public location: Location;
   usuarioLogado: string;
+  imageSrc: string | undefined;
 
   constructor(location: Location, private authService: AuthService, private router: Router) {
     this.location = location;

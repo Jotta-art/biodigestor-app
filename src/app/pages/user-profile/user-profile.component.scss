@@ -1,0 +1,12 @@
+
+::ng-deep {
+  .hidden-j input{
+    display: none !important;
+  }
+
+  .imagem-padrao {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+  }
+}

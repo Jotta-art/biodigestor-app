@@ -32,4 +32,8 @@ export class HomeService {
   obterEmailUsuarioLogado(username: string): Observable<Usuario> {
     return this.http.get<Usuario>(environment.baseUrl + `/home/${username}`)
   }
+
+  salvarFotoPerfil(usuario: Usuario) {
+    return this.http.post<Usuario>(environment.baseUrl + '/home/foto-perfil', usuario)
+  }
 }

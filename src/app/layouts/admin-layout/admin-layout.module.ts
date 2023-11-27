@@ -21,6 +21,8 @@ import {RippleModule} from "primeng/ripple";
 import {DialogModule} from "primeng/dialog";
 import {InputTextModule} from "primeng/inputtext";
 import {CardModule} from "primeng/card";
+import {ToastModule} from "primeng/toast";
+import {FileUploadModule} from "primeng/fileupload";
 
 // import { ToastrModule } from 'ngx-toastr';
 
@@ -37,7 +39,9 @@ import {CardModule} from "primeng/card";
     RippleModule,
     DialogModule,
     InputTextModule,
-    CardModule
+    CardModule,
+    ToastModule,
+    FileUploadModule
   ],
   declarations: [
     DashboardComponent,

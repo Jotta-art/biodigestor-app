@@ -21,9 +21,10 @@
         <div class="row justify-content-center">
           <div class="col-lg-3 order-lg-2">
             <div class="card-profile-image">
-              <a href="javascript:void(0)">
-                <img src="assets/img/theme/perfil.png" class="rounded-circle">
+              <a href="javascript:void(0)" (click)="triggerFileInput()">
+                <img src="{{imageSrc ? imageSrc  : 'assets/img/theme/perfil.png'}}" class="rounded-circle imagem-padrao">
               </a>
+              <input type="file" class="hidden" #fileInput (change)="onUpload($event)" />
             </div>
           </div>
         </div>
@@ -54,7 +55,7 @@
           </div>
           <div class="text-center">
             <h3>
-              Jessica Jones<span class="font-weight-light">, 27</span>
+              {{nome}}<span class="font-weight-light">, 27</span>
             </h3>
             <div class="h5 font-weight-300">
               <i class="ni location_pin mr-2"></i>Osasco, São Paulo
@@ -66,9 +67,6 @@
               <i class="ni education_hat mr-2"></i>Instituto Federal de São Paulo
             </div>
             <hr class="my-4"/>
-            <p>Ryan — nome adotado por Nick Murphy, nascido em Melbourne e baseado no Brooklyn — escreve, executa e
-              grava toda a sua própria música.</p>
-            <a href="javascript:void(0)">Show more</a>
           </div>
         </div>
       </div>
@@ -79,9 +77,6 @@
           <div class="row align-items-center">
             <div class="col-8">
               <h3 class="mb-0">Minha conta</h3>
-            </div>
-            <div class="col-4 text-right">
-              <a href="#!" class="btn btn-sm btn-primary">Configurações</a>
             </div>
           </div>
         </div>
@@ -110,7 +105,7 @@
                   <div class="form-group">
                     <label class="form-control-label" for="input-first-name">Nome</label>
                     <input type="text" id="input-first-name" class="form-control form-control-alternative"
-                           placeholder="Seu Nome">
+                           placeholder="Seu Nome" [(ngModel)]="nome">
                   </div>
                 </div>
                 <div class="col-lg-6">
@@ -130,7 +125,8 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label class="form-control-label" for="input-address">Endereço</label>
-                    <input id="input-address" class="form-control form-control-alternative" placeholder="Seu Endereço" type="text">
+                    <input id="input-address" class="form-control form-control-alternative" placeholder="Seu Endereço"
+                           type="text">
                   </div>
                 </div>
               </div>
@@ -138,7 +134,8 @@
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label" for="input-city">Cidade</label>
-                    <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="Seu Endereço">
+                    <input type="text" id="input-city" class="form-control form-control-alternative"
+                           placeholder="Seu Endereço">
                   </div>
                 </div>
                 <div class="col-lg-4">
@@ -163,8 +160,7 @@
             <div class="pl-lg-4">
               <div class="form-group">
                 <label>Sobre mim</label>
-                <textarea rows="4" class="form-control form-control-alternative">
-                  Fale um pouco sobre você...
+                <textarea rows="4" class="form-control form-control-alternative">Fale um pouco sobre você...
                 </textarea>
               </div>
             </div>

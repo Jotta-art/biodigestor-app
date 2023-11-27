@@ -1,29 +1,65 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AuthService} from "../../auth.service";
 import {HomeService} from "../../services/home.service";
+import {MessageService} from "primeng/api";
+import {Usuario} from "../../models/usuario";
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.scss']
+  styleUrls: ['./user-profile.component.scss'],
+  providers: [MessageService]
 })
 export class UserProfileComponent implements OnInit {
   usuarioLogado: string;
   email: string;
+  nome = 'Seu Nome';
+  imageSrc: string | undefined;
+
+  @ViewChild('fileInput') fileInput!: ElementRef;
 
 
   constructor(private authService: AuthService, private service: HomeService) {
   }
+
+  triggerFileInput() {
+    this.fileInput.nativeElement.click();
+  }
+
+  onUpload(event: any) {
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      // Set image src
+      this.imageSrc = e.target.result;
+      this.salvarImagem();
+    };
+
+    reader.readAsDataURL(event.target.files[0]);
+  }
+
+  salvarImagem() {
+    if (this.imageSrc) {
+      let usuario = new Usuario();
+      usuario.username = this.usuarioLogado;
+      usuario.imagem = this.imageSrc;
+      this.service.salvarFotoPerfil(usuario)
+        .subscribe({
+          next: response => {
+          }, error: (error) => {
+          }
+        });
+    }
+  }
+
 
   ngOnInit() {
     this.usuarioLogado = this.authService.getUsuarioAutenticado();
     this.service.obterEmailUsuarioLogado(this.usuarioLogado)
       .subscribe({
         next: response => {
-          console.log("RESPONMSE" +  response);
+          console.log(response);
           if (response) this.email = response.email;
         }, error: (error) => {
-          console.log(error);
         }
       });
   }
