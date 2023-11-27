@@ -116,6 +116,7 @@ export class GraficosComponent implements OnInit {
         datasets: [{
           data: [],
           lineTension: 0,
+          label: 'Vazão Entrada',
           backgroundColor: 'transparent',
           borderColor: '#007bff',
           borderWidth: 4,
@@ -123,6 +124,7 @@ export class GraficosComponent implements OnInit {
         }, {
           data: [],
           lineTension: 0,
+          label: 'Vazão Saída',
           backgroundColor: 'transparent',
           borderColor: '#fa5151',
           borderWidth: 4,
@@ -138,7 +140,7 @@ export class GraficosComponent implements OnInit {
           }]
         },
         legend: {
-          display: false
+          display: true
         }
       }
     });
