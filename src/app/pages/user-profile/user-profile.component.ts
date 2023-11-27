@@ -17,9 +17,26 @@ export class UserProfileComponent implements OnInit {
   imageSrc: string | undefined;
 
   @ViewChild('fileInput') fileInput!: ElementRef;
+  usuario: Usuario;
+  mostrar = false;
 
 
   constructor(private authService: AuthService, private service: HomeService) {
+  }
+  ngOnInit() {
+    this.usuarioLogado = this.authService.getUsuarioAutenticado();
+    this.service.obterDadosUsuarioLogado(this.usuarioLogado)
+      .subscribe({
+        next: response => {
+          console.log(response);
+          if (response) {
+            this.usuario = response;
+            this.email = response.email;
+            this.imageSrc = response.imagem;
+          }
+        }, error: (error) => {
+        }
+      });
   }
 
   triggerFileInput() {
@@ -42,25 +59,15 @@ export class UserProfileComponent implements OnInit {
       let usuario = new Usuario();
       usuario.username = this.usuarioLogado;
       usuario.imagem = this.imageSrc;
+      usuario.email = this.email;
+      usuario.password = this.usuario.password;
       this.service.salvarFotoPerfil(usuario)
         .subscribe({
           next: response => {
+            this.service.atualizaImagem.next(usuario.imagem);
           }, error: (error) => {
           }
         });
     }
-  }
-
-
-  ngOnInit() {
-    this.usuarioLogado = this.authService.getUsuarioAutenticado();
-    this.service.obterEmailUsuarioLogado(this.usuarioLogado)
-      .subscribe({
-        next: response => {
-          console.log(response);
-          if (response) this.email = response.email;
-        }, error: (error) => {
-        }
-      });
   }
 }

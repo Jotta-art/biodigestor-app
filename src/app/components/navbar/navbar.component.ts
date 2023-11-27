@@ -3,6 +3,7 @@ import {ROUTES} from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {Router} from '@angular/router';
 import {AuthService} from "../../auth.service";
+import {HomeService} from "../../services/home.service";
 
 @Component({
   selector: 'app-navbar',
@@ -16,13 +17,29 @@ export class NavbarComponent implements OnInit {
   usuarioLogado: string;
   imageSrc: string | undefined;
 
-  constructor(location: Location, private authService: AuthService, private router: Router) {
+  constructor(location: Location, private authService: AuthService, private router: Router, private service: HomeService) {
     this.location = location;
   }
 
   ngOnInit() {
     this.usuarioLogado = this.authService.getUsuarioAutenticado();
     this.listTitles = ROUTES.filter(listTitle => listTitle);
+
+    this.service.obterDadosUsuarioLogado(this.usuarioLogado)
+      .subscribe({
+        next: response => {
+          console.log(response);
+          if (response) {
+            this.imageSrc = response.imagem;
+          }
+        }, error: (error) => {
+        }
+      });
+
+
+    this.service.atualizaImagem.subscribe(res => {
+      this.imageSrc = res;
+    });
   }
 
   getTitle() {

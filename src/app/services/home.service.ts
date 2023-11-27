@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Observable, Subject} from "rxjs";
 import {Filtro} from "../models/filtro";
 import {Dado} from "../models/dado";
 import {environment} from "../../environments/environment";
@@ -10,6 +10,8 @@ import {Usuario} from "../models/usuario";
   providedIn: 'root'
 })
 export class HomeService {
+  atualizaImagem: Subject<string> = new Subject<string>();
+
   constructor(private http: HttpClient) {
   }
 
@@ -29,7 +31,7 @@ export class HomeService {
     return this.http.put<Dado>(environment.baseUrl + `/home/${dado.id}`, dado)
   }
 
-  obterEmailUsuarioLogado(username: string): Observable<Usuario> {
+  obterDadosUsuarioLogado(username: string): Observable<Usuario> {
     return this.http.get<Usuario>(environment.baseUrl + `/home/${username}`)
   }
 
