@@ -23,6 +23,7 @@ import {InputTextModule} from "primeng/inputtext";
 import {CardModule} from "primeng/card";
 import {ToastModule} from "primeng/toast";
 import {FileUploadModule} from "primeng/fileupload";
+import {DropdownModule} from "primeng/dropdown";
 
 // import { ToastrModule } from 'ngx-toastr';
 
@@ -41,7 +42,8 @@ import {FileUploadModule} from "primeng/fileupload";
     InputTextModule,
     CardModule,
     ToastModule,
-    FileUploadModule
+    FileUploadModule,
+    DropdownModule
   ],
   declarations: [
     DashboardComponent,
