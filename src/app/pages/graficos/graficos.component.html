@@ -2,27 +2,25 @@
   <div class="header-body">
     <div class="container-fluid mt-2">
       <h1 class="text-white">Gráficos</h1>
+      <div class="m-8 p-3 bg-white">
+        <main role="main" class="">
+          <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <!-- Example single danger button -->
 
+            <div class="card flex justify-content-center">
+              <p-dropdown (onChange)="alterarCampos()" [options]="graficos" [(ngModel)]="selectedGrafico" optionLabel="name"></p-dropdown>
+            </div>
+
+            <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+          </div>
+        </main>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="m-8">
-
-  <div class="m-8">
-    <main role="main" class="">
-      <div
-        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <!-- Example single danger button -->
-
-        <div class="card flex justify-content-center">
-          <p-dropdown (onChange)="alterarCampos()" [options]="graficos" [(ngModel)]="selectedGrafico" optionLabel="name"></p-dropdown>
-        </div>
-
-        <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-      </div>
-    </main>
-  </div>
   <h2>Log Biodigestor</h2>
   <div *ngIf="selectedGrafico.name === 'Real-Time'">
     <div class="scroll-view" style="height: 350px; overflow-y: auto;">
