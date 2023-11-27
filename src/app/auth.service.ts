@@ -53,7 +53,6 @@ export class AuthService {
 
   salvar(usuario: Usuario): Observable<any> {
     return this.http.post<any>(environment.baseUrl + "/api/usuarios", usuario);
-
   }
 
   tentarLogar(username: string, password: string): Observable<any> {
